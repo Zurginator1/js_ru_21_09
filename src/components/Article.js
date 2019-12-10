@@ -1,5 +1,9 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import Test from './Test'
+import CommentList from './CommentList'
+
+
 
 class Article extends Component {
     static defaultProps = {
@@ -18,7 +22,7 @@ class Article extends Component {
 
     render() {
         const {article, isOpen, onButtonClick} = this.props
-        const body = isOpen && <section>{article.text}</section>
+        const body = isOpen && (<div> <section>{article.text}</section> <CommentList comments = {article.comments} /> </div>)
         return (
             <div>
                 <h2>
