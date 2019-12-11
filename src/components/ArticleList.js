@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Article from './Article'
 
@@ -8,12 +8,12 @@ class ArticleList extends Component {
     }
 
     render() {
-        const {articles} = this.props
+        const { articles } = this.props
         if (!articles.length) return <h3>No Articles</h3>
         const articleElements = articles.map((article) => <li key={article.id}>
             <Article article={article}
-                     isOpen={article.id === this.state.openArticleId}
-                     onButtonClick={this.toggleArticle(article.id)}
+                isOpen={article.id === this.state.openArticleId}
+                onButtonClick={this.toggleArticle(article.id)}
             />
         </li>)
         return (
@@ -24,7 +24,11 @@ class ArticleList extends Component {
     }
 
     toggleArticle = (openArticleId) => (ev) => {
-        this.setState({openArticleId})
+        if (this.state.openArticleId === openArticleId) {
+            this.setState({openArticleId: null});
+        }
+        else
+            this.setState({ openArticleId });
     }
 }
 
