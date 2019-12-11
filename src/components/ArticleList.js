@@ -28,7 +28,7 @@ class ArticleList extends Component {
             this.setState({openArticleId: null});
         }
         else
-            this.setState({ openArticleId });
+            this.setState({ openArticleId : openArticleId });
     }
 }
 
