@@ -14,11 +14,11 @@ class Comment extends Component {
 
     render() {
         const { comment } = this.props;
-        const { user, text } = comment;
+        const { user, text} = comment;
 
         return (
             <div>
-                <h3>{user}</h3>
+                <h4>{user}</h4>
                 <span>{text}</span>
             </div>
         )
