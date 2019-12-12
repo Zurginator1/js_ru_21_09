@@ -3,6 +3,7 @@ import Select from 'react-select'
 import ArticleList from './ArticleList'
 import ArticlesChart from './ArticlesChart'
 import 'react-select/dist/react-select.css'
+import Calendar from './Calendar'
 
 class App extends Component {
     state = {
@@ -23,7 +24,8 @@ class App extends Component {
         return (
             <div>
                 <h1>App name</h1>
-                User: <input type = 'text' value = {username} onChange = {this.handleUserChange}/>
+                <Calendar />
+                <div>User: <input type = 'text' value = {username} onChange = {this.handleUserChange}/></div> 
                 <Select options={options} value={selected} onChange={this.handleChange} multi />
                 <ArticleList articles={articles}/>
                 <ArticlesChart articles={articles}/>

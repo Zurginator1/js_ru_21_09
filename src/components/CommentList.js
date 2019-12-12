@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Comment from './Comment'
 import PropTypes from 'prop-types'
 import toggleOpen from '../decorators/toggleOpen'
+import AddComment from './AddComments'
 
 class CommentList extends Component {
     componentDidMount() {
@@ -41,6 +42,7 @@ function getBody(props) {
     return (
         <div>
             {body}
+            <AddComment />
         </div>
     )
 }
