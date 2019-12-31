@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import Select from 'react-select'
 import ArticleList from './ArticleList'
-import ArticlesChart from './ArticlesChart'
 import 'react-select/dist/react-select.css'
-import Calendar from './Calendar'
+import {connect} from 'react-redux'
+import Counter from './Counter'
 
 class App extends Component {
     state = {
@@ -12,6 +12,7 @@ class App extends Component {
     }
 
     render() {
+        console.log(this.props)
         const {articles} = this.props
 
         const options = articles.map(article => ({
@@ -24,11 +25,10 @@ class App extends Component {
         return (
             <div>
                 <h1>App name</h1>
-                <Calendar />
+                <Counter />
                 <div>User: <input type = 'text' value = {username} onChange = {this.handleUserChange}/></div> 
                 <Select options={options} value={selected} onChange={this.handleChange} multi />
-                <ArticleList articles={articles}/>
-                <ArticlesChart articles={articles}/>
+                <ArticleList />
             </div>
         )
     }
@@ -46,4 +46,4 @@ class App extends Component {
     }
 }
 
-export default App
+export default connect(state => ({articles : state.articles}))(App)

@@ -1,6 +1,12 @@
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
 import App from './components/App'
-import articles from './fixtures'
+import store from './store'
+import { Provider as StoreProvider } from 'react-redux'
 
-render(<App articles = {articles}/>, document.getElementById('container'))
+render(
+    <StoreProvider store={store}>
+        <App />
+    </StoreProvider>,
+    document.getElementById('container')
+)
