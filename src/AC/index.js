@@ -1,4 +1,4 @@
-import {INCREMENT, DELETE_ARTICLE} from '../constants'
+import {INCREMENT, DELETE_ARTICLE, DATE_RANGE} from '../constants'
 
 export function increment() {
     const action = {
@@ -12,5 +12,12 @@ export function deleteArticle(id) {
     return {
         type: DELETE_ARTICLE,
         payload: { id }
+    }
+}
+
+export function clickToDateRange(day) {
+    return {
+        type: DATE_RANGE,
+        payload: {day}
     }
 }
