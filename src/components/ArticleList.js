@@ -16,9 +16,7 @@ class ArticleList extends Accordion {
         if (this.state.error) return <h2>Error: {this.state.error.message}</h2>
         if (!articles.length) return <h3>No Articles</h3>
         const filteredArticles = articles.filter((article) => {
-            if(dateRange.from === null || dateRange.to === null)
-                return true;
-            if (+(dateRange.from) <= Date.parse(article.date) && Date.parse(article.date) <= +(dateRange.to)) {
+            if (+(dateRange.from) <= Date.parse(article.date) && Date.parse(article.date) <= +(dateRange.to) || dateRange.from === null || dateRange.to === null) {
                 if(selected.length === 0)
                     return true
                 for (let i = 0; i < selected.length; i++) {
