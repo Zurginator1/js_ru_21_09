@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import DateRange from './DateRange'
 import SelectFilter from './Select'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 class Filters extends Component {
     static propTypes = {
@@ -10,11 +10,11 @@ class Filters extends Component {
     render() {
         return (
             <div>
-                <SelectFilter articles = {this.props.articles}/>
+                <SelectFilter articles={this.props.articles} />
                 <DateRange />
             </div>
         )
     }
 }
 
-export default connect((state) => ({articles : state.articles}))(Filters)
+export default connect((state) => ({ articles: state.articles }))(Filters)
