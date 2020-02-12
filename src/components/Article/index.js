@@ -2,7 +2,6 @@ import React, {Component, PureComponent} from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import PropTypes from 'prop-types'
 import CommentList from '../CommentList'
-import {findDOMNode} from 'react-dom'
 import {connect} from 'react-redux'
 import {deleteArticle} from '../../AC'
 import './style.css'
@@ -62,7 +61,7 @@ class Article extends PureComponent {
         return (
             <div>
                 <section>{article.text}</section>
-                <CommentList comments = {article.comments} ref = {this.setCommentsRef} key = {this.state.clicked}/>
+                <CommentList comments = {article.comments} ref = {this.setCommentsRef} key = {this.state.clicked} articleId = {this.props.articleId}/>
             </div>
         )
     }

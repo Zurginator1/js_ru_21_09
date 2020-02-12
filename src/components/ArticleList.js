@@ -25,6 +25,7 @@ class ArticleList extends Accordion {
             <Article article={article}
                      isOpen={article.id === this.state.openItemId}
                      onButtonClick={this.toggleOpenItemMemoized(article.id)}
+                     articleId = {article.id}
             />
         </li>)
         return (
