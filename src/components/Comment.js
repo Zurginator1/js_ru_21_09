@@ -23,10 +23,11 @@ Comment.propTypes = {
 const createMapStateToProps = () => {
     const commentSelector = createCommentSelector()
 
-    const mapStateToProps = (state, ownProps) => ({
+    const mapStateToProps = (state, ownProps) => {
+        return ({
         comment: commentSelector(state, ownProps)
     })
-
+}
     return mapStateToProps
 }
 

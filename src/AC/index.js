@@ -41,7 +41,8 @@ export function addComment(comment, articleId) {
 export function loadComments(articleId) {
     return {
         type: LOAD_COMMENTS,
-        callAPI: `api/comment?article=${articleId}`
+        callAPI: `api/comment?article=${articleId}`,
+        payload: {articleId}
     }
 }
 

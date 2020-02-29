@@ -1,4 +1,4 @@
-import { ADD_COMMENT, LOAD_COMMENTS, SUCCESS} from '../constants'
+import { ADD_COMMENT, LOAD_COMMENTS, SUCCESS, START} from '../constants'
 import { normalizedComments } from '../fixtures'
 import { arrToMap } from './utils'
 import { Record } from 'immutable'
@@ -9,7 +9,7 @@ const CommentRecord = Record({
     text: null
 })
 
-export default (state = arrToMap([], CommentRecord), action) => {
+export default (state = arrToMap(normalizedComments, CommentRecord), action) => {
     const { type, payload, randomId, response } = action
 
     switch (type) {
@@ -18,10 +18,6 @@ export default (state = arrToMap([], CommentRecord), action) => {
                 ...payload.comment,
                 id: randomId
             }))
-
-        case LOAD_COMMENTS + SUCCESS:
-            console.log('Comments is loaded')
-            return arrToMap(response, CommentRecord)
     }
 
     return state
