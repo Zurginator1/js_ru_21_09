@@ -1,11 +1,11 @@
-import React, {Component, PureComponent} from 'react'
+import React, { Component, PureComponent } from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import PropTypes from 'prop-types'
 import CommentList from '../CommentList'
 import Loader from '../Loader'
-import {findDOMNode} from 'react-dom'
-import {connect} from 'react-redux'
-import {deleteArticle, loadArticle} from '../../AC'
+import { findDOMNode } from 'react-dom'
+import { connect } from 'react-redux'
+import { deleteArticle, loadArticle } from '../../AC'
 import './style.css'
 
 class Article extends PureComponent {
@@ -27,30 +27,30 @@ class Article extends PureComponent {
         clicked: 0
     }
 
-    componentWillReceiveProps({isOpen, article, loadArticle}) {
+    componentWillReceiveProps({ isOpen, article, loadArticle }) {
         if (!this.props.isOpen && isOpen && !article.text && !article.loading) loadArticle(article.id)
     }
 
     render() {
-        const {article, isOpen, onButtonClick} = this.props
+        const { article, isOpen, onButtonClick } = this.props
 
         if (this.state.clicked > 3) throw new Error('clicked more then 3 times')
 
         return (
             <div>
-                <h2 ref = {this.setHeaderRef}>
+                <h2 ref={this.setHeaderRef}>
                     {article.title}
                     <button onClick={onButtonClick}>
                         {isOpen ? 'close' : 'open'}
                     </button>
-                    <span onClick = {this.increment}>Clicked: {this.state.clicked} times</span>
-                    <button onClick = {this.handleDelete}>delete me</button>
+                    <span onClick={this.increment}>Clicked: {this.state.clicked} times</span>
+                    <button onClick={this.handleDelete}>delete me</button>
                 </h2>
                 <ReactCSSTransitionGroup
-                    transitionName = 'article'
-                    transitionEnterTimeout = {500}
-                    transitionLeaveTimeout = {300}
-                    component = 'div'
+                    transitionName='article'
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={300}
+                    component='div'
                 >
                     {this.getBody()}
                 </ReactCSSTransitionGroup>
@@ -60,7 +60,7 @@ class Article extends PureComponent {
     }
 
     getBody() {
-        const {isOpen, article} = this.props
+        const { isOpen, article } = this.props
 
         if (!isOpen) return null
         if (article.loading) return <Loader />
@@ -68,24 +68,24 @@ class Article extends PureComponent {
         return (
             <div>
                 <section>{article.text}</section>
-                <CommentList article = {article} ref = {this.setCommentsRef} key = {this.state.clicked}/>
+                <CommentList article={article} ref={this.setCommentsRef} key={this.state.clicked} />
             </div>
         )
     }
 
     setHeaderRef = header => {
         this.header = header
-//        console.log('---', this.header)
+        //        console.log('---', this.header)
     }
 
     setCommentsRef = comments => {
         this.comments = comments
-/*
-        setTimeout(() => {
-            this.comments.forceUpdate()
-        }, 500)
-*/
-//        console.log('---', 'comments', comments, findDOMNode(comments))
+        /*
+                setTimeout(() => {
+                    this.comments.forceUpdate()
+                }, 500)
+        */
+        //        console.log('---', 'comments', comments, findDOMNode(comments))
     }
 
     increment = () => this.setState({

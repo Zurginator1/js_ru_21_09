@@ -1,6 +1,6 @@
 import { DELETE_ARTICLE, ADD_COMMENT, LOAD_ALL_ARTICLES, LOAD_ARTICLE, SUCCESS, START } from '../constants'
-import {arrToMap} from './utils'
-import {Record, OrderedMap} from 'immutable'
+import { arrToMap } from './utils'
+import { Record, OrderedMap } from 'immutable'
 
 const ArticleRecord = Record({
     id: null,
