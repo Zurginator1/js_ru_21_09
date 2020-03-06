@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {NavLink} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import Article from './Article'
 import Loader from './Loader'
 import Accordion from './Accordion'
-import {connect} from 'react-redux'
-import {filtratedArticlesSelector} from '../selectors'
-import {checkAndLoadAllArticles} from '../AC'
+import { connect } from 'react-redux'
+import { filtratedArticlesSelector } from '../selectors'
+import { checkAndLoadAllArticles } from '../AC'
 
 class ArticleList extends Accordion {
     constructor(props) {
@@ -19,19 +19,19 @@ class ArticleList extends Accordion {
     }
 
     componentDidMount() {
-        const {checkAndLoadAllArticles } = this.props
+        const { checkAndLoadAllArticles } = this.props
         checkAndLoadAllArticles()
     }
 
     render() {
         console.log('---', 'rerendering ArticleList')
-        const {articles, loading} = this.props
+        const { articles, loading } = this.props
         if (loading) return <Loader />
         if (this.state.error) return <h2>Error: {this.state.error.message}</h2>
         if (!articles.length) return <h3>No Articles</h3>
 
         const articleElements = articles.map((article) => <li key={article.id}>
-            <NavLink to = {`/articles/${article.id}`} activeStyle = {{color: 'red'}}>
+            <NavLink to={`/articles/${article.id}`} activeStyle={{ color: 'red' }}>
                 {article.title}
             </NavLink>
         </li>)

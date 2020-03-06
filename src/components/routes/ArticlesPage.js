@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Route} from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import ArticleList from '../ArticleList'
 import Article from '../Article'
 
@@ -13,7 +13,7 @@ class ArticlesPage extends Component {
         return (
             <div>
                 <ArticleList />
-                <Route path = '/articles/:id' children = {this.getArticleView}/>
+                <Route path='/articles/:id' children={this.getArticleView} />
             </div>
         )
     }
@@ -23,7 +23,7 @@ class ArticlesPage extends Component {
 
         console.log('---', 'Article Match', match)
 
-        return <Article isOpen id = {match.params.id} key = {match.params.id} />
+        return <Article isOpen id={match.params.id} key={match.params.id} />
     }
 }
 

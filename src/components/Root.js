@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {Provider} from 'react-redux'
-import {BrowserRouter as Router} from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { BrowserRouter as Router } from 'react-router-dom'
 import App from './App'
 
 class Root extends Component {
@@ -11,7 +11,7 @@ class Root extends Component {
 
     render() {
         return (
-            <Provider store = {this.props.store}>
+            <Provider store={this.props.store}>
                 <Router>
                     <App />
                 </Router>

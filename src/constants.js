@@ -6,6 +6,7 @@ export const LOAD_ARTICLE = 'LOAD_ARTICLE'
 
 export const ADD_COMMENT = 'ADD_COMMENT'
 export const LOAD_ARTICLE_COMMENTS = 'LOAD_ARTICLE_COMMENTS'
+export const LOAD_COMMENTS_PAGE = 'LOAD_COMMENTS_PAGE'
 
 export const CHANGE_SELECTION = 'CHANGE_SELECTION'
 export const CHANGE_DATE_RANGE = 'CHANGE_DATE_RANGE'
@@ -13,3 +14,5 @@ export const CHANGE_DATE_RANGE = 'CHANGE_DATE_RANGE'
 export const START = '_START'
 export const SUCCESS = '_SUCCESS'
 export const FAIL = '_FAIL'
+
+export const QUANITY_OF_COMMENTS = 5

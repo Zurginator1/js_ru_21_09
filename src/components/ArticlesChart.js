@@ -20,7 +20,7 @@ class ArticlesChart extends Component {
     }
 
     render() {
-        return <div ref = 'container' />
+        return <div ref='container' />
     }
 }
 
