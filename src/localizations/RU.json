@@ -1,0 +1,42 @@
+{
+    "app": {
+        "title":"Моё приложение",
+        "articles": "Статьи",
+        "language": "Язык",
+        "filters": "Фильтры",
+        "counter": "Счетчик",
+        "comments": "Коментарии",
+        "user": "Пользователь",
+        "notFound": "Не найдено",
+        "newArticlePage": "Новая статья"
+    },
+    "menu": {
+        "title":"Главное меню"
+    },
+    "counter": {
+        "count": "Значение",
+        "increment": "Прибавить"
+    },
+    "articlesPage": {
+        "title":"Список статей",
+        "select":"Выберете статью"
+    },
+    "article": {
+        "clicked": "Нажато",
+        "times": "раз",
+        "delete": "Удалить статью",
+        "creationDate": "Дата создания"
+    },
+    "commentForm": {
+        "user": "Имя",
+        "comment": "Текст коментария",
+        "submit": "Отправить"
+    },
+    "commentList": {
+        "showComments": "Показать коментарии",
+        "hideComments": "Скрыть коментарии"
+    },
+    "comment": {
+        "by": "от"
+    }
+}

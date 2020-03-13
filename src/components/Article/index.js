@@ -13,6 +13,10 @@ class Article extends Component {
 
     }
 
+    static contextTypes = {
+        language: PropTypes.object
+    }
+
     static propTypes = {
         id: PropTypes.string.isRequired,
         isOpen: PropTypes.bool,
@@ -35,6 +39,7 @@ class Article extends Component {
     }
 
     render() {
+        const { article: articleLang } = this.context.language
         console.log('---', 3)
         const {article, isOpen, onButtonClick} = this.props
         if (!article) return null
@@ -45,8 +50,8 @@ class Article extends Component {
             <div>
                 <h2 ref = {this.setHeaderRef}>
                     {article.title}
-                    <span onClick = {this.increment}>Clicked: {this.state.clicked} times</span>
-                    <button onClick = {this.handleDelete}>delete me</button>
+                    <span onClick = {this.increment}>{articleLang.clicked}: {this.state.clicked} {articleLang.times}</span>
+                    <button onClick = {this.handleDelete}>{articleLang.delete}</button>
                 </h2>
                 <ReactCSSTransitionGroup
                     transitionName = 'article'
@@ -56,7 +61,7 @@ class Article extends Component {
                 >
                     {this.getBody()}
                 </ReactCSSTransitionGroup>
-                <h3>creation date: {(new Date(article.date)).toDateString()}</h3>
+                <h3>{articleLang.creationDate}: {(new Date(article.date)).toDateString()}</h3>
             </div>
         )
     }

@@ -6,36 +6,46 @@ import CommentsPage from './routes/CommentsPage'
 import Filters from './Filters'
 import Counter from './Counter'
 import Menu, {MenuItem} from './Menu'
+import localizationEn from '../localizations/EN.json'
+import localizationRu from '../localizations/RU.json'
 
 class App extends Component {
     state = {
-        username: ''
+        username: '',
+        language: localizationEn
     }
 
     static childContextTypes = {
-        user: PropTypes.string
+        user: PropTypes.string,
+        language: PropTypes.object
     }
 
     getChildContext() {
+        console.log("STATE", this.state)
         return {
-            user: this.state.username
+            user: this.state.username,
+            language: this.state.language
         }
     }
 
     render() {
         const {username} = this.state
+        const { app } = this.state.language
         console.log('---', 1)
 
         return (
             <div>
-                <h1>App name</h1>
+                <h1>{app.title}</h1>
+                <h3>{app.language}: </h3>
+                <button onClick = {this.handleChangeEn}>EN</button>
+                <button onClick = {this.handleChangeRu}>RU</button>
                 <Menu>
-                    <MenuItem to = '/articles'>articles</MenuItem>
-                    <MenuItem to = '/filters'>filters</MenuItem>
-                    <MenuItem to = '/counter'>counter</MenuItem>
-                    <MenuItem to = '/comments/1'>comments</MenuItem>
+                    <MenuItem to = '/articles'>{app.articles}</MenuItem>
+                    <MenuItem to = '/filters'>{app.filters}</MenuItem>
+                    <MenuItem to = '/counter'>{app.counter}</MenuItem>
+                    <MenuItem to = '/comments/1'>{app.comments}</MenuItem>
                 </Menu>
-                User: <input type = 'text' value = {username} onChange = {this.handleUserChange}/>
+                {app.user}: <input type = 'text' value = {username} onChange = {this.handleUserChange}/>
                 <Switch>
                     <Redirect from = '/' exact to = '/articles'/>
                     <Route path = '/counter' component = {Counter} exact />
@@ -49,9 +59,23 @@ class App extends Component {
         )
     }
 
-    notFound = () => <h1>Not Found</h1>
+    handleChangeEn = () => {
+        if(this.state.language !== 'EN')
+            this.setState({
+                language: localizationEn
+            })
+    }
 
-    newArticlePage = () => <h1>New Article Page</h1>
+    handleChangeRu = () => {
+        if(this.state.language !== 'RU')
+            this.setState({
+                language: localizationRu
+            })
+    }
+
+    notFound = () => <h1>{app.notFound}</h1>
+
+    newArticlePage = () => <h1>{app.newArticlePage}</h1>
 
     handleUserChange = ev => {
         if (ev.target.value.length > 10) return this.setState({

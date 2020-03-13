@@ -1,0 +1,42 @@
+{
+    "app": {
+        "title": "App name",
+        "language": "Language",
+        "articles": "Articles",
+        "filters": "Filters",
+        "counter": "Counter",
+        "comments": "Comments",
+        "user": "User",
+        "notFound": "Not found",
+        "newArticlePage": "New article page"
+    },
+    "menu": {
+        "title": "Main menu"
+    },
+    "counter": {
+        "count": "Count",
+        "increment": "Increment"
+    },
+    "articlesPage": {
+        "title": "Article list",
+        "select": "Select some article"
+    },
+    "article": {
+        "clicked": "Clicked",
+        "times": "time",
+        "delete": "Delete me",
+        "creationDate": "Creation date"
+    },
+    "commentForm": {
+        "user": "User",
+        "comment": "Comment",
+        "submit": "Submit"
+    },
+    "commentList": {
+        "showComments": "Show comments",
+        "hideComments": "Hide comments"
+    },
+    "comment": {
+        "by": "by"
+    }
+}
