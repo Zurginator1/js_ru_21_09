@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import {connect} from 'react-redux'
 import {increment} from '../AC'
+import { withNamespaces, useTranslation } from 'react-i18next'
 
 class Counter extends Component {
     static propTypes = {
@@ -13,9 +14,12 @@ class Counter extends Component {
     }
 
     render() {
+        const { t } = useTranslation()
+
         const { counter } = this.context.language
         return (
             <div>
+                <span>{t('by')}</span>
                 <h3>{counter.count}: {this.props.count} <button onClick = {this.handleIncrement}>{counter.increment}</button></h3>
             </div>
         )
@@ -31,4 +35,4 @@ const mapStateToProps = (state) => ({
     count: state.counter
 })
 
-export default connect(mapStateToProps)(Counter)
+export default withNamespaces()(connect(mapStateToProps)(Counter))
